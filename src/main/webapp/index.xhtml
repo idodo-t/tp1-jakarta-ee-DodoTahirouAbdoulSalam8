@@ -43,6 +43,22 @@
             <h:inputTextarea id="conversation" value="#{chatBean.conversation}" rows="14" cols="70"
                              readonly="true"/>
         </div>
+        <div class="bloc">
+            <h:outputText value="Mode debug : "/>
+            <p:toggleSwitch id="debugSwitch" value="#{chatBean.debug}" label="Mode debug"/>
+            <p:tooltip for="debugSwitch" value="Active ou non l'affichage du JSON sur les *prochaines* requêtes et réponses du LLM."/>
+        </div>
+
+        <h:panelGroup id="debug" layout="block" rendered="#{chatBean.debug}">
+            <div class="bloc">
+                <h:outputLabel for="requeteJson" value="JSON de la requête :"/><br/>
+                <h:inputTextarea id="requeteJson" value="#{chatBean.texteRequeteJson}" rows="10" cols="70" readonly="true"/>
+            </div>
+            <div class="bloc">
+                <h:outputLabel for="reponseJson" value="JSON de la réponse :"/><br/>
+                <h:inputTextarea id="reponseJson" value="#{chatBean.texteReponseJson}" rows="10" cols="70" readonly="true"/>
+            </div>
+        </h:panelGroup>
     </h:form>
 </h:body>
 </html>

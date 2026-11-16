@@ -1,0 +1,3 @@
+package ma.emsi.tahirou.tp0.llm;
+
+public record LlmInteraction(String questionJson, String reponseJson, String reponseExtraite) {}
